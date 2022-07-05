@@ -1,0 +1,43 @@
+body {
+    --y-1: 255, 187, 14;
+    --w-0: 255, 222, 35;
+    --e-0: 240, 36, 36;
+    --z-0: 0, 0, 0;
+
+    --bsh-1: 0 1px 8px;
+}
+
+.App {
+    background-color: rgb(253, 253, 253);
+    height: 100vh;
+}
+
+.App > header {
+    height: 10%;
+    color: rgb(var(--z-0), 0.7);
+    border-bottom: 1px solid rgb(var(--z-0), 0.1);
+    padding-inline: 8px;
+}
+
+.App > main {
+    height: 90%;
+}
+
+
+
+
+
+
+
+
+
+
+
+.App > header > h3 {
+    display: flex;
+    align-items: center;
+    padding-inline: 16px;
+    font-weight: 500;
+    width: fit-content;
+    height: 100%;
+}

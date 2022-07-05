@@ -1,0 +1,58 @@
+.List {
+    height: 100%;
+    width: 75%;
+    float: left;
+    padding: 8px;
+}
+
+.Column {
+    height: inherit;
+    float: left;
+    width: calc(100% / 3);
+    padding: 16px;
+}
+
+.column-header {
+    height: 10%;
+    border-radius: 0 0 4px 4px;
+    border-bottom: 1px solid rgb(var(--z-0), 0.05);
+    background-color: rgb(var(--z-0), 0.01);
+}
+
+.column-content {
+    height: 90%;
+    overflow-y: scroll;
+}
+
+.Card {
+    margin: 12px;
+    height: fit-content;
+    padding: 2%;
+    border-radius: 4px;
+    background-color: rgb(var(--z-0), 0.03);
+    border: 1px solid rgb(var(--z-0), 0.05);
+}
+
+.column-header h3 {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 450;
+    color: rgb(var(--z-0), 0.6);
+}
+
+.List > main {
+    height: inherit;
+    background-color: white;
+    box-shadow: var(--bsh-1) rgb(var(--z-0), 0.05);
+    border: 1px solid rgb(var(--z-0), 0.05);
+    border-radius: 4px;
+}
+
+.Column > main {
+    height: inherit;
+    border-radius: 4px;
+    box-shadow: var(--bsh-1) rgb(var(--z-0), 0.05);
+    border: 1px solid rgb(var(--z-0), 0.05);
+}

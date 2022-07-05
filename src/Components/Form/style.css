@@ -1,0 +1,75 @@
+.Form {
+    float: left;
+    height: 100%;
+    width: 25%;
+    padding: 12px;
+    overflow-y: scroll;
+}
+
+.Form > form {
+    height: min(100%, auto);
+    width: border-box;
+    border-radius: 4px;
+}
+
+.form-section {
+    height: max(10%, auto);
+    border-bottom: 1px solid rgb(var(--z-0), 0.05);
+    border-radius: 4px;
+    padding: 18px;
+}
+
+.form-title {
+    font-weight: 350;
+    font-size: 18px;
+    padding-block: 8px;
+}
+
+input,
+textarea,
+select {
+    border: 1px solid rgb(var(--z-0), 0.1);
+    border-radius: 5px;
+    padding: 8px 3px;
+    outline: none;
+    font-weight: 200;
+    color: #6f6f6f;
+}
+
+textarea {
+    resize: vertical;
+    line-height: 1.5;
+}
+
+input:focus,
+textarea:focus {
+    border: 1px solid rgb(var(--z-0), 0.2);
+}
+
+button {
+    border: 1px transparent;
+    padding: 10px 16px;
+    border-radius: 4px;
+    color: white;
+    margin-inline: 4px;
+    outline: 0;
+    cursor: pointer;
+}
+
+button.success {
+    background-color: rgb(var(--y-1));
+}
+button.error {
+    background-color: rgb(var(--e-0));
+}
+
+button.success:disabled {
+    background-color: rgb(var(--y-1), 0.5);
+}
+button.error:disabled {
+    background-color: rgb(var(--e-0), 0.5);
+}
+
+button:hover {
+    outline: 1px dashed rgb(var(--z-0), 0.4);
+}
