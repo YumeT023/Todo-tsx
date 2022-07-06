@@ -3,7 +3,7 @@ import { CardI } from '../../Models/Card.interface';
 
 export const Card: React.FC<CardI> = ({item, handle}) => {
 
-    const {title, description, status, lastEdit} = item;
+    const {title, description, lastEdit} = item;
 
     return (
         <div className="Card" onClick={() => handle(item.idItem)} >
@@ -16,12 +16,16 @@ export const Card: React.FC<CardI> = ({item, handle}) => {
 
 
                 <div className="card-content">
-                    <p>{description.slice(0, 120)}</p>
+                    {
+                        description ? (
+                            <p>{description.slice(0, 20)}</p>
+                        ): <p className='card-footer'>no description</p>
+                    }
                 </div>
 
                 <div className="card-footer">
                     <small>
-                        <i>last edit {lastEdit}</i>
+                        <i>last edit: {lastEdit}</i>
                     </small>
                 </div>
             </main>

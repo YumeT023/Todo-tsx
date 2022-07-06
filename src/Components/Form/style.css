@@ -68,6 +68,7 @@ select {
 
 textarea {
     resize: vertical;
+    overflow-wrap: break-word;
     line-height: 1.5;
 }
 

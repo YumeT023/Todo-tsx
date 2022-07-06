@@ -1,5 +1,3 @@
-import { EditI } from "./form.interface";
-
 export type StatusT = "TODO" | "DOING" | "DONE"
 
 export interface MainListI {

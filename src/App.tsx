@@ -86,23 +86,52 @@ const ITEMS: Array<ItemI> = [
     }
 ]
 
+const ITEM_TEMPLATE = {
+    idItem: null,
+	title: '',
+	description: '',
+	status: 'TODO'
+}
+
 export const App: React.FC = () => {
     const [items, setItems] = useState<ItemI[]>(ITEMS);
     const [edit, setEdit] = useState<EditI>({
+        mode: "add",
         isActive: false
     });
 
-    const handleActiveEdit = (idItem: number): void => {
+    const setEditMode = (idItem?: number) => {
+        if (idItem) {
+            const item = items.find(item => item.idItem === idItem);
+            setEdit({...edit, item, mode: 'update', isActive: true});
+            return ;
+        }
+        setEdit({...edit, mode: 'add', isActive: true})
+    }
 
-        const item = items.find(item => item.idItem == idItem);
+    const handleOnSave = (newItem: ItemI, idItem?: number) => {
+        let tmp = [...items];
+        newItem.lastEdit = new Date().toDateString();
+        
+        if (!idItem) {
+            newItem.idItem = tmp[tmp.length - 1].idItem + 1;
+            tmp = [...items, newItem];
+        } else {
+            tmp = tmp.map(item => (
+                item.idItem === idItem ? (
+                    item = newItem
+                ): item)
+            );
+        }
 
-        console.log(item);
+        setItems(tmp);
+        setEdit({...edit, isActive: false})
+    }
 
-        setEdit({
-            ...edit,
-            item,
-            isActive: true
-        })
+    const handleActiveEdit = (idItem?: number, newItem?: ItemI): void => {
+        !newItem ? (
+            setEditMode(idItem)
+        ): handleOnSave(newItem, idItem);
     }
 
     return (
@@ -110,10 +139,16 @@ export const App: React.FC = () => {
 
             <header>
                 <h3>Todo List</h3>
+                <div className="add-icon">
+                    <i className="fas fa-plus"
+                        title='add task'
+                        onClick={() => handleActiveEdit()}
+                    ></i>
+                </div>
             </header>
 
             <main>
-                <Form {...edit} />
+                <Form {...edit} handleEdit={handleActiveEdit} onCancel={() => setEdit({...edit, isActive: false})} confirmLabel={edit.mode} />
                 <List full={!edit.isActive} items={items} handleEdit={handleActiveEdit} />
             </main>
 

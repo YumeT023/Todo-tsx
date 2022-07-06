@@ -1,5 +1,5 @@
 import React from 'react';
-import { ItemI, MainListI } from '../../Models/list.model';
+import { MainListI } from '../../Models/list.model';
 import { Column } from './Column';
 import { getItemsByStatus } from "../../Operations/fn.helper";
 import './style.css';

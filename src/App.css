@@ -23,21 +23,34 @@ body {
     height: 90%;
 }
 
-
-
-
-
-
-
-
-
-
-
-.App > header > h3 {
-    display: flex;
+header > h3,
+header > .add-icon {
+    width: 90%;
+    display: inline-flex;
     align-items: center;
     padding-inline: 16px;
     font-weight: 500;
-    width: fit-content;
     height: 100%;
+}
+
+header > .add-icon {
+    width: 10%;
+    align-items: center;
+    justify-content: center;
+    float: right;
+}
+
+.add-icon > i {
+    cursor: pointer;
+    background-color: rgb(var(--y-1), 1);
+    padding: 9% 10%;
+    border-radius: 50%;
+    box-shadow: 0 1px 4px rgb(var(--z-0), 0.3);
+    color: white;
+    transition: 0.2s;
+}
+
+.add-icon > i:hover {
+    background-color: rgb(var(--y-1), 0.8);
+    box-shadow: 0 2px 4px rgb(var(--z-0), 0.3);
 }

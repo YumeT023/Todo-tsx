@@ -1,9 +1,8 @@
-import React, { useState } from "react";
-import { ItemI, ListI } from "../../Models/list.model";
+import React from "react";
+import { ListI } from "../../Models/list.model";
 import { Card } from "./Card";
 
 export const Column: React.FC<ListI> = ({label, items, handle}) => {
-    const [_items, setItems] = useState<ItemI[]>(items);
 
     return (
         <div className="Column">

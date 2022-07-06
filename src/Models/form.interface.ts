@@ -1,4 +1,5 @@
-import { ItemI } from './list.model';
+import React from 'react';
+import { ItemI, StatusT } from './list.model';
 
 export interface FormSectionI {
     label: string;
@@ -6,13 +7,11 @@ export interface FormSectionI {
     children?: import('react').ReactNode;
 }
 
-export interface OptionI {
-    label: string;
-    status: boolean;
-}
-
 export interface EditI {
     isActive: boolean;
     mode?: string;
+    confirmLabel?: string;
     item?: ItemI;
+    handleEdit?: (idItem?: number, newItem?: ItemI) => void;
+    onCancel?: () => void;
 }
