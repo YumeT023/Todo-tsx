@@ -1,4 +1,14 @@
-.List {
+/* == list of content ==
+ * 1.   Main components
+ * 2.   List
+ * 3.   Column
+ * 4.   Card
+ == */
+
+/* -------------
+ 1. Main components
+ -------------*/
+ .List {
     height: 100%;
     width: 75%;
     float: left;
@@ -12,25 +22,75 @@
     padding: 16px;
 }
 
-.column-header {
-    height: 10%;
-    border-radius: 0 0 4px 4px;
-    border-bottom: 1px solid rgb(var(--z-0), 0.05);
-    background-color: rgb(var(--z-0), 0.01);
-}
-
-.column-content {
-    height: 90%;
-    overflow-y: scroll;
-}
-
 .Card {
-    margin: 12px;
     height: fit-content;
-    padding: 2%;
-    border-radius: 4px;
-    background-color: rgb(var(--z-0), 0.03);
+    padding: 0.5rem 2.5rem;
+}
+/* end of Main components ========= */
+
+
+/* -------------
+ 2. List
+ -------------*/
+ .List.full {
+    width: 100%;
+ }
+ .List > main {
+    height: inherit;
+    background-color: white;
+    box-shadow: var(--bsh-1) rgb(var(--z-0), 0.05);
     border: 1px solid rgb(var(--z-0), 0.05);
+    border-radius: 4px;
+}
+/* end of List ========= */
+
+
+/* -------------
+ 3. Column
+ -------------*/
+ .Column > main {
+    height: inherit;
+    border-radius: 4px;
+    box-shadow: var(--bsh-1) rgb(var(--z-0), 0.08);
+    border: 1px solid rgb(var(--z-0), 0.05);
+}
+.column-content {
+    height: 80%;
+    overflow-y: scroll;
+    padding-block: 8px;
+    background-color: rgb(var(--z-0), 0.04);
+}
+
+.column-header,
+.column-footer {
+    height: 10%;
+    background-color: rgb(var(--z-0), 0.01);
+    border-color: rgb(var(--z-0), 0.05);
+}
+
+.column-header {
+    border-radius: 0 0 4px 4px;
+    border-bottom-width: 1px;
+}
+
+.column-footer {
+    box-shadow: 0 -1px 4px rgb(var(--z-0), 0.09);
+    border-radius: 4px 4px 0 0;
+    border-top-width: 1px;
+}
+
+.column-content::-webkit-scrollbar {
+    width: 8px;
+    background-color: rgb(var(--z-0), 0.03);
+}
+
+.column-content::-webkit-scrollbar-thumb {
+    border-radius: 16px;
+    background-color: rgb(var(--z-0), 0.1);
+}
+
+.column-content:hover::-webkit-scrollbar-thumb {
+    background-color: rgb(var(--z-0), 0.25);
 }
 
 .column-header h3 {
@@ -41,18 +101,44 @@
     font-weight: 450;
     color: rgb(var(--z-0), 0.6);
 }
+/* end of Column ========= */
 
-.List > main {
-    height: inherit;
+
+
+/* -------------
+ 4. Card
+ -------------*/
+ .Card > main {
+    cursor: pointer;
     background-color: white;
-    box-shadow: var(--bsh-1) rgb(var(--z-0), 0.05);
-    border: 1px solid rgb(var(--z-0), 0.05);
-    border-radius: 4px;
+    border-radius: 18px;
+    padding: 16px;
 }
 
-.Column > main {
-    height: inherit;
-    border-radius: 4px;
-    box-shadow: var(--bsh-1) rgb(var(--z-0), 0.05);
-    border: 1px solid rgb(var(--z-0), 0.05);
+.card-header {
+    background-color: rgb(var(--z-0), 0.4);
+    color: white;
+    padding: 8px 10px;
+    width: fit-content;
+    border-radius: 12px;
 }
+
+.card-header h3 {
+    font-weight: 500;
+}
+
+.card-content {
+    margin-block: 8px;
+    border-block: 1px solid rgb(var(--z-0), 0.2);
+    color: rgb(var(--z-0), 0.8);
+}
+
+.card-footer {
+    color: rgb(var(--z-0), 0.5);
+}
+
+.Card:hover .card-header {
+    background-color: rgb(var(--y-1), 0.7);
+}
+
+/* end of Card ========= */

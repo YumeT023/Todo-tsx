@@ -1,8 +1,9 @@
 import React from "react";
-import { ListI } from "../../Models/list.interface";
+import { ListI } from "../../Models/list.model";
 import { Card } from "./Card";
 
-export const Column: React.FC<ListI> = ({label, items}) => {
+export const Column: React.FC<ListI> = ({label, items, handle}) => {
+
     return (
         <div className="Column">
 
@@ -14,13 +15,19 @@ export const Column: React.FC<ListI> = ({label, items}) => {
 
                 <div className="column-content">
                     {
-                        items.map(item => {
+                        items.map((item, index) => {
                             return (
-                                <Card {...item} />
+                                <Card 
+                                    item={item}
+                                    handle={handle}
+                                    key={index} 
+                                />
                             );
                         })
                     }
                 </div>
+
+                <div className="column-footer"></div>
 
             </main>
 

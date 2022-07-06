@@ -1,101 +1,21 @@
 import React from 'react';
-import { ItemI } from '../../Models/list.interface';
+import { MainListI } from '../../Models/list.model';
 import { Column } from './Column';
-import { getItemsByStatus } from "./fn.helper";
+import { getItemsByStatus } from "../../Operations/fn.helper";
 import './style.css';
 
-export const List: React.FC<{}> = () => {
-    const ITEMS: Array<ItemI> = [
-        {
-            idItem: 1,
-            title: "nothing",
-            description: "there is no description",
-            status: "TODO"
-        },
-        {
-            idItem: 1,
-            title: "nothing",
-            description: "there is no description",
-            status: "DOING"
-        },
-        {
-            idItem: 1,
-            title: "nothing",
-            description: "there is no description",
-            status: "DONE"
-        },
-        {
-            idItem: 1,
-            title: "nothing",
-            description: "there is no description",
-            status: "DOING"
-        },
-        {
-            idItem: 1,
-            title: "nothing",
-            description: "there is no description",
-            status: "DOING"
-        },
-        {
-            idItem: 1,
-            title: "nothing",
-            description: "there is no description",
-            status: "TODO"
-        },
-        {
-            idItem: 1,
-            title: "nothing",
-            description: "there is no description",
-            status: "DOING"
-        },
-        {
-            idItem: 1,
-            title: "nothing",
-            description: "there is no description",
-            status: "DOING"
-        },
-        {
-            idItem: 1,
-            title: "nothing",
-            description: "there is no description",
-            status: "DOING"
-        },
-        {
-            idItem: 1,
-            title: "nothing",
-            description: "there is no description",
-            status: "TODO"
-        },
-        {
-            idItem: 1,
-            title: "nothing",
-            description: "there is no description",
-            status: "DOING"
-        },
-        {
-            idItem: 1,
-            title: "nothing",
-            description: "there is no description",
-            status: "DONE"
-        },
-        {
-            idItem: 1,
-            title: "nothing",
-            description: "there is no description",
-            status: "DOING"
-        }
-    ]
+export const List: React.FC<MainListI> = ({full, items, handleEdit}) => {
 
     return (
-        <div className="List">
+        <div className={`List ${full && 'full'}`}>
 
             <main>
 
-                <Column label='TODO' items={getItemsByStatus(ITEMS, "TODO")} />
+                <Column label='TODO' items={getItemsByStatus(items, "TODO")} handle={handleEdit} />
 
-                <Column label='DOING' items={getItemsByStatus(ITEMS, "DOING")} />
+                <Column label='DOING' items={getItemsByStatus(items, "DOING")} handle={handleEdit} />
 
-                <Column label='DONE' items={getItemsByStatus(ITEMS, "DONE")} />
+                <Column label='DONE' items={getItemsByStatus(items, "DONE")} handle={handleEdit} />
 
             </main>
 
