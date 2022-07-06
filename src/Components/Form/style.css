@@ -1,4 +1,16 @@
-.Form {
+/* == list of content ==
+ * 1.   Main components
+ * 2.   Form
+ * 3.   FormSection
+ * 4.   Button
+ * 5.   CheckOptions
+ == */
+
+
+/* -------------
+ 1. Main components
+ -------------*/
+ .Form {
     float: left;
     height: 100%;
     width: 25%;
@@ -6,23 +18,41 @@
     overflow-y: scroll;
 }
 
-.Form > form {
-    height: min(100%, auto);
-    width: border-box;
-    border-radius: 4px;
-}
-
-.form-section {
+.FormSection {
     height: max(10%, auto);
     border-bottom: 1px solid rgb(var(--z-0), 0.05);
     border-radius: 4px;
     padding: 18px;
 }
 
-.form-title {
-    font-weight: 350;
-    font-size: 18px;
-    padding-block: 8px;
+.Button {
+    border: 1px transparent;
+    padding: 10px 16px;
+    border-radius: 4px;
+    color: white;
+    margin-inline: 4px;
+    outline: 0;
+    cursor: pointer;
+    background-color: rgb(var(--z-0), 0.3)
+}
+.CheckOptions {
+    height: auto;
+}
+/* end of Main components ========= */
+
+
+/* -------------
+ 2. Form
+ -------------*/
+ .Form.hide {
+    display: none;
+    overflow: hidden;
+ }
+
+.Form > form {
+    height: min(100%, auto);
+    width: border-box;
+    border-radius: 4px;
 }
 
 input,
@@ -45,31 +75,60 @@ input:focus,
 textarea:focus {
     border: 1px solid rgb(var(--z-0), 0.2);
 }
+/* end of Form ========= */
 
-button {
-    border: 1px transparent;
-    padding: 10px 16px;
-    border-radius: 4px;
-    color: white;
-    margin-inline: 4px;
-    outline: 0;
-    cursor: pointer;
+
+/* -------------
+ 3. FormSection
+ -------------*/
+ .form-title {
+    font-weight: 350;
+    font-size: 18px;
+    padding-block: 8px;
 }
+/* end of FormSection ========= */
 
-button.success {
+
+/* -------------
+ 4. Button
+ -------------*/
+.success {
     background-color: rgb(var(--y-1));
 }
-button.error {
+.error {
     background-color: rgb(var(--e-0));
 }
 
-button.success:disabled {
+.success:disabled {
     background-color: rgb(var(--y-1), 0.5);
 }
-button.error:disabled {
+.error:disabled {
     background-color: rgb(var(--e-0), 0.5);
 }
 
-button:hover {
-    outline: 1px dashed rgb(var(--z-0), 0.4);
+.Button:hover {
+    outline: 0;
+    transform: scale(1.05);
 }
+/* end of Button ========= */
+
+/* -------------
+ 5. CheckOptions
+ -------------*/
+.CheckOptions .Button {
+    margin: 0 0 8px 0;
+    border-radius: 0;
+    display: inline-flex;
+    justify-content: space-evenly;
+    width: calc(100% / 3);
+}
+
+.CheckOptions .Button:nth-child(odd) {
+    border-radius: 5px 0 0 0;
+}
+
+.CheckOptions .Button:nth-child(even) {
+    margin-inline: 8px;
+    border-radius: 0 5px 0 0;
+}
+/* end of CheckOptions ========= */
