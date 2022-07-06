@@ -2,7 +2,7 @@ import React from "react";
 import { ListI } from "../../Models/list.model";
 import { Card } from "./Card";
 
-export const Column: React.FC<ListI> = ({label, items, handle}) => {
+export const Column: React.FC<ListI> = ({label, items, handle, handleDelete}) => {
 
     return (
         <div className="Column">
@@ -20,6 +20,7 @@ export const Column: React.FC<ListI> = ({label, items, handle}) => {
                                 <Card 
                                     item={item}
                                     handle={handle}
+                                    onDelete={handleDelete}
                                     key={index} 
                                 />
                             );

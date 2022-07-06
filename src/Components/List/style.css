@@ -141,4 +141,21 @@
     background-color: rgb(var(--y-1), 0.7);
 }
 
+.card-delete {
+    padding-block: 5% 2%;
+}
+.card-delete > i {
+    /* padding-right: 6%; */
+    margin-right: 2.5%;
+    padding: 4%;
+    border-radius: 50%;
+    color: rgb(var(--z-0), 0.85);
+}
+.card-delete > i:hover {
+    transition: 0.1s;
+    background-color: rgb(var(--z-0), 0.07);
+}
+.card-delete > i:active {
+    background-color: rgb(var(--z-0), 0.1);
+}
 /* end of Card ========= */
