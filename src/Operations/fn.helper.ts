@@ -1,4 +1,4 @@
-import { ItemI, StatusT } from "../Models/list.model";
+import { ItemI } from "../Models/list.model";
 import { GetItemsByAttribute } from "../Models/list.model";
 
 export const getItemsByStatus: GetItemsByAttribute<ItemI> = (items, status) => {

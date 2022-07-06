@@ -4,6 +4,7 @@ export interface MainListI {
 	full: boolean;
 	items: Array<ItemI>;
 	handleEdit: (idItem: number) => void;
+	handleDelete: (idItem: number) => void;
 }
 
 export interface ItemI {
@@ -18,6 +19,7 @@ export interface ListI {
 	label: string;
 	items: Array<ItemI>;
 	handle: (idItem: number) => void;
+	handleDelete: (idItem: number) => void;
 }
 
 export type GetItemsByAttribute<T, C = string> = {

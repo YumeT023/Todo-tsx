@@ -86,11 +86,11 @@ const ITEMS: Array<ItemI> = [
     }
 ]
 
-const ITEM_TEMPLATE = {
-    idItem: null,
-	title: '',
-	description: '',
-	status: 'TODO'
+export const INITIAL_ITEM: ItemI = {
+    idItem: 0,
+    title: '',
+    description: '',
+    status: 'TODO'
 }
 
 export const App: React.FC = () => {
@@ -109,9 +109,16 @@ export const App: React.FC = () => {
         setEdit({...edit, mode: 'add', isActive: true})
     }
 
-    const handleOnSave = (newItem: ItemI, idItem?: number) => {
+    const handleDelete = (idItem: number): void => {
+        const tmp = [...items];
+        const item = tmp.find(item => item.idItem === idItem)!
+        tmp.splice(tmp.indexOf(item), 1);
+        setItems(tmp)
+    }
+
+    const handleOnSave = (newItem: ItemI, idItem?: number): void => {
         let tmp = [...items];
-        newItem.lastEdit = new Date().toDateString();
+        newItem.lastEdit = new Date().toTimeString();
         
         if (!idItem) {
             newItem.idItem = tmp[tmp.length - 1].idItem + 1;
@@ -125,7 +132,7 @@ export const App: React.FC = () => {
         }
 
         setItems(tmp);
-        setEdit({...edit, isActive: false})
+        setEdit({...edit, item: INITIAL_ITEM, isActive: false})
     }
 
     const handleActiveEdit = (idItem?: number, newItem?: ItemI): void => {
@@ -148,8 +155,18 @@ export const App: React.FC = () => {
             </header>
 
             <main>
-                <Form {...edit} handleEdit={handleActiveEdit} onCancel={() => setEdit({...edit, isActive: false})} confirmLabel={edit.mode} />
-                <List full={!edit.isActive} items={items} handleEdit={handleActiveEdit} />
+                <Form 
+                    {...edit} 
+                    handleEdit={handleActiveEdit}
+                    onCancel={() => setEdit({...edit, item: INITIAL_ITEM, isActive: false})}
+                    confirmLabel={edit.mode} 
+                />
+                <List 
+                    full={!edit.isActive} 
+                    items={items} 
+                    handleDelete={handleDelete}
+                    handleEdit={handleActiveEdit}
+                />
             </main>
 
         </div>

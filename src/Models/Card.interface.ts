@@ -2,5 +2,6 @@ import { ItemI } from "./list.model"
 
 export interface CardI {
     item: ItemI
-    handle: (idItem: number) => void
+    handle: (idItem: number) => void;
+    onDelete: (IdItem: number) => void;
 }

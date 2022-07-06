@@ -5,13 +5,7 @@ import { Button } from "./Button";
 import { EditI } from '../../Models/form.interface';
 import { ItemI, StatusT } from '../../Models/list.model';
 import { useEffect } from 'react';
-
-const INITIAL_ITEM: ItemI = {
-    idItem: 0,
-    title: '',
-    description: '',
-    status: 'TODO'
-}
+import { INITIAL_ITEM } from '../../App';
 
 export const Form: React.FC<EditI> = ({ isActive, item, confirmLabel, handleEdit, onCancel}) => {
 
@@ -27,20 +21,21 @@ export const Form: React.FC<EditI> = ({ isActive, item, confirmLabel, handleEdit
     }
 
     useEffect(() => {
+        if (item) {
+            setFormValue(item);
+            setStatus(item.status);
+        }
+    }, [item]);
+
+    useEffect(() => {
         const {title, status} = formValue;
 
-        title.trim() == '' || !status ? (
+        title.trim() === '' || !status ? (
             setIsValid(false)
         ): setIsValid(true);
 
     }, [formValue])
 
-    useEffect(() => {
-        if (item) {
-            setFormValue(item);
-            setStatus(item.status);
-        }
-    }, [item])
 
     const reinitialize = () => setFormValue(INITIAL_ITEM);
 
@@ -74,7 +69,10 @@ export const Form: React.FC<EditI> = ({ isActive, item, confirmLabel, handleEdit
 
                 </FormSection>
 
-                <FormSection label={`(${formValue.description.slice(0, 120).length}/120) Enter a`} title="description">
+                <FormSection 
+                    label={`(${formValue.description.slice(0, 120).length}/120) Enter a`} 
+                    title="description"
+                >
 
                     <textarea 
                         name="description"
